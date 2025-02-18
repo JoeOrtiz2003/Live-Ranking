@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Ranking Table</title>
+    <style>
+        body {
+            background-color: transparent; /* Make the background transparent */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+        
+        .buttons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin-right: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #FF69B4; /* Pink color */
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #FF1493;
+        }
+
+        table {
+            width: auto;
+            border-collapse: collapse;
+            background-color: #C66B85; /* Pink background */
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border: 1px solid #D85698;
+            text-align: center;
+        }
+
+        th {
+            background-color: #B03C7F;
+        }
+
+        tr:nth-child(even) {
+            background-color: #C66B85;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #A84E6F;
+        }
+
+        tr:hover {
+            background-color: #9C3E66;
+            transition: 0.3s;
+        }
+
+        .team-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .team-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+        
+        .low-opacity {
+            opacity: 0.3;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="buttons">
+        <button onclick="startDisplay()">Play</button>
+        <button onclick="stopDisplay()">Stop</button>
+    </div>
+
+    <table id="rankingTable">
+        <thead>
+            <tr>
+                <th>RANK</th>
+                <th>TEAM</th>
+                <th>ELIMS</th>
+                <th class="hidden">ALIVE</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr><td colspan="3">Loading...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        const sheetID = "1srwCRcCf_grbInfDSURVzXXRqIqxQ6_IIPG-4_gnSY8";
+        const sheetName = "LIVE RANKING";
+        const query = "select AE,AF,AN,AO,AP"; 
+        const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&tq=${encodeURIComponent(query)}`;
+
+        let rows = [];
+
+        async function fetchGoogleSheetData() {
+            try {
+                const response = await fetch(sheetURL);
+                const text = await response.text();
+                const jsonData = JSON.parse(text.substring(47, text.length - 2));
+                
+                rows = jsonData.table.rows.map(row => ({
+                    rank: row.c[0]?.v || "#",
+                    team: row.c[1]?.v?.toString().trim() || "",
+                    elims: row.c[2]?.v || 0,
+                    logo: row.c[3]?.v || "default.png",
+                    alive: row.c[4]?.v || 0
+                })).filter(row => row.team);
+
+                rows.sort((a, b) => b.elims - a.elims);
+                updateTable();
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        function updateTable() {
+            const tableBody = document.getElementById("table-body");
+            tableBody.innerHTML = "";
+            rows.forEach(row => {
+                const newRow = document.createElement("tr");
+                if (row.alive === 0) newRow.classList.add("low-opacity");
+                newRow.innerHTML = `
+                    <td>${row.rank}</td>
+                    <td>
+                        <div class="team-info">
+                            <img src="${row.logo}" onerror="this.src='logos/default.png';" class="team-logo">
+                            ${row.team}
+                        </div>
+                    </td>
+                    <td>${row.elims}</td>
+                    <td class="hidden">${row.alive}</td>
+                `;
+                tableBody.appendChild(newRow);
+            });
+        }
+
+        function startDisplay() {
+            document.getElementById("rankingTable").style.display = "table";
+            fetchGoogleSheetData();
+            setInterval(fetchGoogleSheetData, 5000);
+        }
+
+        function stopDisplay() {
+            document.getElementById("rankingTable").style.display = "none";
+        }
+
+        fetchGoogleSheetData();
+    </script>
+
+</body>
+</html>
