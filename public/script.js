@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainDiv = document.getElementById("mainDiv");
   mainDiv.style.display = "flex";
 
-  createRankingElements(19);
+  createRankingElements(16);
   fetchRankingData();
   setInterval(fetchRankingData, 1000);
 });
@@ -85,7 +85,7 @@ const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=
 
 let previousRanks = {};
 
-function createRankingElements(count = 19) {
+function createRankingElements(count = 16) {
   const wrapper = document.getElementById("rankingElementsWrapper");
   wrapper.innerHTML = "";
 
@@ -164,7 +164,7 @@ function updateRankingElements(data) {
 
     const aliveBoxes = element.querySelectorAll(".rankingElementAlive");
     aliveBoxes.forEach((box, i) => {
-      box.style.backgroundColor = i < teamData.alive ? "#ffffff" : "#0e0d0d";
+      box.style.backgroundColor = i < teamData.alive ? "#ffffff" : "#4e4e4e";
     });
 
     if (teamData.alive === 0) {
@@ -175,14 +175,4 @@ function updateRankingElements(data) {
   });
 
   previousRanks = { ...newRanks };
-}
-
-function send(action) {
-  fetch('/api/control', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action })
-  }).then(res => res.json())
-    .then(data => console.log(data))
-    .catch(console.error);
 }
