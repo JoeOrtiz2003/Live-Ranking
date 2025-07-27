@@ -31,9 +31,9 @@ google.charts.setOnLoadCallback(() => {
           const wrapper = document.querySelector('.bracket-wrapper');
           if (wrapper) {
             if (command.scrollDirection === 'up') {
-              wrapper.scrollBy({ top: -550, behavior: 'smooth' });
+              wrapper.scrollBy({ top: -600, behavior: 'smooth' });
             } else if (command.scrollDirection === 'down') {
-              wrapper.scrollBy({ top: 550, behavior: 'smooth' });
+              wrapper.scrollBy({ top: 600, behavior: 'smooth' });
             }
           }
           lastScrollDirection = command.scrollDirection;
