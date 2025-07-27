@@ -53,7 +53,7 @@ app.get('/Controller', (req, res) => {
 });
 
 // Serve display.html at /display
-app.get('/Display', (req, res) => {
+app.get('/Ranking', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'display.html'));
 });
 
