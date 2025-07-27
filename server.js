@@ -66,6 +66,11 @@ app.get('/Kills', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'kills.html'));
 });
 
+// Serve wwcd.html at /WWCD
+app.get('/WWCD', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'wwcd.html'));
+});
+
 app.get('/Match', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'match.html'));
 });
