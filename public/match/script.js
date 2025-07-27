@@ -37,9 +37,11 @@ google.charts.setOnLoadCallback(() => {
             }
           }
           lastScrollDirection = command.scrollDirection;
+        } else if (!command.scrollDirection) {
+          lastScrollDirection = null;
         }
       });
-  }, 1000);
+  }, 500);
 });
 
 function fetchSheetData() {

@@ -17,7 +17,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Get current state
 app.get('/api/control', (req, res) => {
   res.json({ ...controlState, wwcdGame, killsGame, matchRankingGame, scrollDirection });
-  scrollDirection = null; // Clear after sending so it only triggers once
+  // Only clear scrollDirection, not the whole state
+  scrollDirection = null;
 });
 
 // Set new state
