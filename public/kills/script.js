@@ -190,6 +190,22 @@ function updateData() {
     });
 }
 
+// Ensure description wrapper exists
+function ensureDescriptionWrapper() {
+  let wrapper = document.querySelector('.description-wrapper');
+  if (!wrapper) {
+    const parent = document.getElementById('animation-layer').firstElementChild;
+    wrapper = document.createElement('div');
+    wrapper.className = 'description-wrapper';
+    wrapper.innerHTML = `
+      <p id="damageInfo1">Elims</p>
+      <div id="damageInfo2"></div>
+    `;
+    parent.insertBefore(wrapper, parent.firstChild);
+  }
+  return wrapper;
+}
+
 // Initialize the app
 document.addEventListener("DOMContentLoaded", () => {
     runTemplateUpdate(); // Initial update
@@ -206,3 +222,17 @@ killsBC.onmessage = (event) => {
     runTemplateUpdate(); // Immediately update kills display
   }
 };
+
+ensureDescriptionWrapper();
+document.getElementById('damageInfo2').textContent = 'Your new description here';
+
+fetch('/api/kills?game=' + selectedGame)
+  .then(res => res.json())
+  .then(data => {
+    ensureDescriptionWrapper();
+    document.getElementById('damageInfo2').textContent = data.description || 'No data';
+  })
+  .catch(() => {
+    ensureDescriptionWrapper();
+    document.getElementById('damageInfo2').textContent = 'Error loading kills data';
+  });

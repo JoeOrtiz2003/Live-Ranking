@@ -22,6 +22,24 @@ google.charts.setOnLoadCallback(() => {
         }
       });
   }, 1000);
+  let lastScrollDirection = null;
+  setInterval(() => {
+    fetch('/api/control')
+      .then(res => res.json())
+      .then(command => {
+        if (command.scrollDirection && command.scrollDirection !== lastScrollDirection) {
+          const wrapper = document.querySelector('.bracket-wrapper');
+          if (wrapper) {
+            if (command.scrollDirection === 'up') {
+              wrapper.scrollBy({ top: -550, behavior: 'smooth' });
+            } else if (command.scrollDirection === 'down') {
+              wrapper.scrollBy({ top: 550, behavior: 'smooth' });
+            }
+          }
+          lastScrollDirection = command.scrollDirection;
+        }
+      });
+  }, 1000);
 });
 
 function fetchSheetData() {
