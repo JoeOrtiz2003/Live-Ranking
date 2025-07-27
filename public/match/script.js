@@ -11,6 +11,17 @@ google.charts.setOnLoadCallback(() => {
     updateSlogan(); // Keep slogan in sync if sheetName changes
     fetchSheetData();
   }, 5000);
+  setInterval(() => {
+    fetch('/api/control')
+      .then(res => res.json())
+      .then(command => {
+        if (command.matchRankingGame && command.matchRankingGame !== sheetName) {
+          sheetName = command.matchRankingGame;
+          updateSlogan();
+          fetchSheetData();
+        }
+      });
+  }, 1000);
 });
 
 function fetchSheetData() {
