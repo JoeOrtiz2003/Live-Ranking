@@ -8,7 +8,7 @@
     --braket-secondary-color: white;
     --braket-odd-background-color: #4c0610;
     --braket-even-background-color: #8f0002;
-    --svg-color: white; /* Color Chicken */
+    --svg-color: white;; /* Color Chicken */
 }
 
 body {
@@ -258,50 +258,32 @@ body {
     width: 100px; /* Consistent width for alignment */
 }
 
-/* Animate in from left */
-.left-in {
-  animation: leftIn 0.4s forwards;
-}
 @keyframes leftIn {
-  from { opacity: 0; transform: translateX(-40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-/* Animate out to left */
-.left-out {
-  animation: leftOut 0.4s forwards;
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }
 @keyframes leftOut {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(-40px); }
-}
-
-/* Animate in from right */
-.right-in {
-  animation: rightIn 0.4s forwards;
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
 }
 @keyframes rightIn {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-/* Animate out to right */
-.right-out {
-  animation: rightOut 0.4s forwards;
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }
 @keyframes rightOut {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(40px); }
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
 }
 
-/* #scoreboard {
-  opacity: 0;
-  transform: translateY(40px);
-  pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+.left-in {
+  animation: leftIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-#scoreboard.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-} */
+.left-out {
+  animation: leftOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.right-in {
+  animation: rightIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.right-out {
+  animation: rightOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
