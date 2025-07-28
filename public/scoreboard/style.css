@@ -294,7 +294,7 @@ body {
   to   { opacity: 0; transform: translateX(40px); }
 }
 
-#scoreboard {
+/* #scoreboard {
   opacity: 0;
   transform: translateY(40px);
   pointer-events: none;
@@ -304,4 +304,4 @@ body {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
+} */

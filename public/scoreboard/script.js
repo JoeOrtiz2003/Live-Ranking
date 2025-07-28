@@ -185,15 +185,15 @@ window.hideScoreboard = hideScoreboard;
 
 let lastAction = null;
 
-function handleScoreboard(action) {
-  const scoreboard = document.getElementById('scoreboard');
-  if (!scoreboard) return;
-  if (action === 'scoreboard_show') {
-    scoreboard.classList.add('visible');
-  } else if (action === 'scoreboard_hide') {
-    scoreboard.classList.remove('visible');
-  }
-}
+// function handleScoreboard(action) {
+//   const scoreboard = document.getElementById('scoreboard');
+//   if (!scoreboard) return;
+//   if (action === 'scoreboard_show') {
+//     scoreboard.classList.add('visible');
+//   } else if (action === 'scoreboard_hide') {
+//     scoreboard.classList.remove('visible');
+//   }
+// }
 
 setInterval(() => {
   fetch('/api/control')
