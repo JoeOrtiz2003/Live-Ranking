@@ -224,7 +224,7 @@ killsBC.onmessage = (event) => {
 };
 
 ensureDescriptionWrapper();
-document.getElementById('damageInfo2').textContent = 'Your new description here';
+document.getElementById('damageInfo2').textContent = '';
 
 fetch('/api/kills?game=' + selectedGame)
   .then(res => res.json())

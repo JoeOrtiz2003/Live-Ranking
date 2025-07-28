@@ -185,18 +185,21 @@ window.hideScoreboard = hideScoreboard;
 
 let lastAction = null;
 
+function handleScoreboard(action) {
+  const scoreboard = document.getElementById('scoreboard');
+  if (!scoreboard) return;
+  if (action === 'scoreboard_show') {
+    scoreboard.classList.add('visible');
+  } else if (action === 'scoreboard_hide') {
+    scoreboard.classList.remove('visible');
+  }
+}
+
 setInterval(() => {
   fetch('/api/control')
     .then(res => res.json())
     .then(command => {
-      if (command.action !== lastAction) {
-        if (command.action === "scoreboard_show") {
-          showScoreboard();
-        } else if (command.action === "scoreboard_hide") {
-          hideScoreboard();
-        }
-        lastAction = command.action;
-      }
+      handleScoreboard(command.action);
     });
-}, 1000);
+}, 500);
 

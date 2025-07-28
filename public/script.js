@@ -164,7 +164,7 @@ function updateRankingElements(data) {
 
     const aliveBoxes = element.querySelectorAll(".rankingElementAlive");
     aliveBoxes.forEach((box, i) => {
-      box.style.backgroundColor = i < teamData.alive ? "#ffffff" : "#4e4e4e";
+      box.style.backgroundColor = i < teamData.alive ? "#ffffff" : "#0e0d0d";
     });
 
     if (teamData.alive === 0) {

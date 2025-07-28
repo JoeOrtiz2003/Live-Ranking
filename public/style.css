@@ -1,13 +1,13 @@
 :root {
   --mainWidth: min(90vw, 250px);
   --font: 'Oswald', sans-serif;
-  --ranking-header-color: black;
-  --ranking-header-background-color: #e6b220;
+  --ranking-header-color: white;
+  --ranking-header-background-color: #c20000;
   --ranking-element-color: white;
-  --ranking-uneven-background-color: #453105;
-  --ranking-even-background-color: #73540a;
+  --ranking-uneven-background-color: #8f0002;
+  --ranking-even-background-color: #4c0610;
   --alive-background-color: #ffffff;
-  --lower-background-color: #73540a;
+  --lower-background-color: #4c0610;
   --dead-background-color: #0e0d0d;
 }
 
@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-transform: uppercase;
-  transform: translateX(0%) translateY(150px);
+  transform: translateX(0%) translateY(115px);
   margin-right: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 1;

@@ -1,13 +1,13 @@
 :root {
     --table-font: MonserratSemiBold;
     --secondary-font: MonserratRegular;
-    --braket-header-color: black;
-    --braket-header-primary-color: #e6b220;
-    --braket-header-secondary-color: #e6b220;
+    --braket-header-color: white;
+    --braket-header-primary-color: #c20000;
+    --braket-header-secondary-color: #c20000;
     --braket-primary-color: white;
     --braket-secondary-color: white;
-    --braket-odd-background-color: #453105;
-    --braket-even-background-color: #73540a;
+    --braket-odd-background-color: #4c0610;
+    --braket-even-background-color: #8f0002;
     --svg-color: white; /* Color Chicken */
 }
 
@@ -286,4 +286,15 @@ body {
 }
 .right-out {
   animation: rightOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+#scoreboard {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+#scoreboard.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
