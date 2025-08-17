@@ -1,13 +1,13 @@
 :root {
   --mainWidth: min(90vw, 250px);
   --font: 'Oswald', sans-serif;
-  --ranking-header-color: white;
-  --ranking-header-background-color: #c20000;
+  --ranking-header-color: black;
+  --ranking-header-background-color: #ed9700;
   --ranking-element-color: white;
-  --ranking-uneven-background-color: #8f0002;
-  --ranking-even-background-color: #4c0610;
+  --ranking-uneven-background-color: #573600;
+  --ranking-even-background-color: #744e0d;
   --alive-background-color: #ffffff;
-  --lower-background-color: #4c0610;
+  --lower-background-color: #744e0d;
   --dead-background-color: #0e0d0d;
 }
 
