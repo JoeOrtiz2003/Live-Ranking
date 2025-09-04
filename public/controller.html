@@ -115,12 +115,6 @@
   </div>
 
   <div class="section">
-    <h1>Live Ranking 2</h1>
-    <button onclick="send('show2')">Show</button>
-    <button onclick="send('hide2')">Hide</button>
-  </div>
-
-  <div class="section">
     <h1>Scoreboard</h1>
     <button onclick="send('scoreboard_show')">Show</button>
     <button onclick="send('scoreboard_hide')">Hide</button>
@@ -188,10 +182,7 @@
     const bc = new BroadcastChannel('wwcd_channel');
     const killsBC = new BroadcastChannel('kills_channel');
     const matchRankingBC = new BroadcastChannel('match_ranking_channel');
-    matchRankingBC.onmessage = (event) => { /* update display */ };
-
     const matchScrollBC = new BroadcastChannel('match_scroll_channel');
-    matchScrollBC.onmessage = (event) => { /* scroll bracket-wrapper */ };
 
     function sendWWCD() {
       const game = wwcdDropdown.value;
@@ -251,14 +242,14 @@
       fetch('/api/control', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'scroll_up' })
+        body: JSON.stringify({ action: 'scroll', direction: 'up' })
       });
     });
     document.getElementById('scrollDownButton').addEventListener('click', () => {
       fetch('/api/control', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'scroll_down' })
+        body: JSON.stringify({ action: 'scroll', direction: 'down' })
       });
     });
   </script>
