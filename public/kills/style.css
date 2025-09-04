@@ -87,7 +87,7 @@ p,
 
 .description-wrapper {
     display: flex;
-    width: 90%;
+    width: 86%;
     flex-direction: row-reverse;
     gap: 1%;
     z-index: 10;
