@@ -2,12 +2,12 @@
   --mainWidth: min(90vw, 255px);
   --font: 'Oswald', sans-serif;
   --ranking-header-color: white;
-  --ranking-header-background-color: #a70000;
+  --ranking-header-background-color: #0076d3;
   --ranking-element-color: white;
-  --ranking-uneven-background-color: #4c0000;
-  --ranking-even-background-color: #760000;
+  --ranking-uneven-background-color: #042371;
+  --ranking-even-background-color: #032789;
   --alive-background-color: #ffffff;
-  --lower-background-color: #760000;
+  --lower-background-color: #032789;
   --dead-background-color: #0e0d0d;
 }
 
@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-transform: uppercase;
-  transform: translateX(0%) translateY(150px);
+  transform: translateX(0%) translateY(157px);
   margin-right: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 1;
@@ -93,7 +93,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 35px;              /* Increased height from 32px to 38px */
+  height: 31px;              /* Increased height from 32px to 38px */
   margin: 0;
   padding: 0;
 }
@@ -102,7 +102,7 @@ body {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 35px;              /* Increased height from 32px to 38px */
+  height: 31px;              /* Increased height from 32px to 38px */
   background-color: var(--ranking-even-background-color);
   z-index: 0;
 }
@@ -111,7 +111,7 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  height: 35px;              /* Increased height from 32px to 38px */
+  height: 31px;              /* Increased height from 32px to 38px */
   align-items: center;
   z-index: 1;
 }
@@ -120,8 +120,8 @@ body {
 .rankingElementName,
 .rankingElementKills,
 .rankingElementPoints {       /* If you have .rankingElementPoints */
-  font-size: 16px;            /* Optional: slightly larger text */
-  line-height: 35px;          /* Match new height */
+  font-size: 15px;            /* Optional: slightly larger text */
+  line-height: 31px;          /* Match new height */
   font-weight: 510;
   color: var(--ranking-element-color);
   margin: 0;
