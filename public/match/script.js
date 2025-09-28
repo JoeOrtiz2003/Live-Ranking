@@ -1,6 +1,6 @@
 const sheetId = '1srwCRcCf_grbInfDSURVzXXRqIqxQ6_IIPG-4_gnSY8';
 let sheetName = 'Game 1';
-const query = 'SELECT V, Y, Z, AA, X, AH, W WHERE U IS NOT NULL ORDER BY AH DESC LIMIT 16';
+const query = 'SELECT V, Y, Z, AA, X, AH, W WHERE U IS NOT NULL ORDER BY AH DESC LIMIT 20';
 
 google.charts.load('current', { packages: ['corechart'] });
 google.charts.setOnLoadCallback(() => {
