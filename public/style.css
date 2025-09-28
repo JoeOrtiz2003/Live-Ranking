@@ -93,7 +93,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 40px;              /* Increased height from 32px to 38px */
+  height: 32px;              /* Increased height from 32px to 38px */
   margin: 0;
   padding: 0;
 }
@@ -102,7 +102,7 @@ body {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 40px;              /* Increased height from 32px to 38px */
+  height: 32px;              /* Increased height from 32px to 38px */
   background-color: var(--ranking-even-background-color);
   z-index: 0;
 }
@@ -111,7 +111,7 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  height: 40px;              /* Increased height from 32px to 38px */
+  height: 32px;              /* Increased height from 32px to 38px */
   align-items: center;
   z-index: 1;
 }
@@ -121,7 +121,7 @@ body {
 .rankingElementKills,
 .rankingElementPoints {       /* If you have .rankingElementPoints */
   font-size: 16px;            /* Optional: slightly larger text */
-  line-height: 40px;          /* Match new height */
+  line-height: 32px;          /* Match new height */
   font-weight: 510;
   color: var(--ranking-element-color);
   margin: 0;
