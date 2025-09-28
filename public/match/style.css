@@ -1,19 +1,19 @@
 :root {
   --font: 'Oswald', sans-serif;
   --match-ranking-slogan-color: white;
-  --match-ranking-winner-frame-border-color: #042371;
-  --match-ranking-winner-frame-shadow-color: #0076d3;
-  --match-ranking-winner-frame-background-color: #032789;
+  --match-ranking-winner-frame-border-color: #237e9a;
+  --match-ranking-winner-frame-shadow-color: #31b4d7;
+  --match-ranking-winner-frame-background-color: #16475b;
   --match-ranking-image-frame-border-color: rgba(255, 0, 0, 0);
   --match-ranking-image-frame-text-color: white;
   --match-ranking-bigger-text-color: white;
   --match-ranking-smaller-text-color: white;
   --match-ranking-divider-color: white;
-  --match-ranking-bracket-header-background-color: #042371;
-  --match-ranking-bracket-header-shadow-color: #032789;
+  --match-ranking-bracket-header-background-color: #237e9a;
+  --match-ranking-bracket-header-shadow-color: #16475b;
   --match-ranking-bracket-header-color: white;
-  --match-ranking-bracket-shadow-color: #042371;
-  --match-ranking-bracket-background-color: #032789;
+  --match-ranking-bracket-shadow-color: #237e9a;
+  --match-ranking-bracket-background-color: #16475b;
   --match-ranking-bracket-color: white;
 }
 
