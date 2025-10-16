@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-transform: uppercase;
-  transform: translateX(0%) translateY(160px);
+  transform: translateX(0%) translateY(170px);
   margin-right: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
   opacity 1;
@@ -64,6 +64,8 @@ body {
   background-color: var(--ranking-header-background-color);
   color: var(--ranking-header-color);
   padding: 8px 0;
+  -webkit-clip-path: polygon(24% 0, 88% 0, 100% 0, 100% 77%, 100% 100%, 0 100%, 0 80%, 0 30%, 7% 0) !important;
+  clip-path: polygon(24% 0, 88% 0, 100% 0, 100% 77%, 100% 100%, 0 100%, 0 80%, 0 30%, 7% 0) !important;
 }
 
 .rankingHeader > p {
@@ -126,9 +128,19 @@ body {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 32px;              /* Increased height from 32px to 38px */
+  height: 32px;              /* keep height in sync with rows */
   background-color: var(--ranking-even-background-color);
   z-index: 0;
+
+  /* apply the left-pointed polygon only to the background */
+  -webkit-clip-path: polygon(24% 0, 88% 0, 100% 0, 100% 77%, 100% 100%, 0 100%, 0 0%, 0 10%, 2% 0%) !important;
+  clip-path: polygon(24% 0, 88% 0, 100% 0, 100% 77%, 100% 100%, 0 100%, 0 0%, 0 10%, 2% 0%) !important;
+}
+
+/* override any clip on the outer element so inner content is not clipped */
+.rankingElement {
+  -webkit-clip-path: none;
+  clip-path: none;
 }
 
 .rankingElementWrapper {
