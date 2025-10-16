@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Graph</title>
+    <title>Kills Statistics</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="kills/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body class="body-class">
-    <div id="main">
-        <div id="animation-layer">
-            <div>
-                <div class="description-wrapper">
-                    <p id="damageInfo1">Elims</p>
-                    <div id="damageInfo2"></div>
-                </div>
-                <div id="graph-wrapper">
-                    <div></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+    <header>
+        <h1>Kills Statistics</h1>
+    </header>
+    <main>
+        <section id="kills-data">
+            <h2>Kill Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Kills</th>
+                        <th>Match</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Kill records will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
     <script src="kills/script.js"></script>
 </body>
 </html>
