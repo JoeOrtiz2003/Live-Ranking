@@ -176,3 +176,44 @@ function updateRankingElements(data) {
 
   previousRanks = { ...newRanks };
 }
+
+(function () {
+  const targetFPS = 60;
+  const frameDuration = 1000 / targetFPS;
+  let lastTime = performance.now();
+  let accum = 0;
+  const registered = new Set();
+
+  window.registerFrame = function (fn) {
+    registered.add(fn);
+    startLoop();
+    return () => registered.delete(fn);
+  };
+  window.unregisterFrame = function (fn) { registered.delete(fn); };
+
+  let rafId = null;
+  function loop(now) {
+    rafId = requestAnimationFrame(loop);
+    const dt = now - lastTime;
+    lastTime = now;
+    accum += dt;
+    const maxCatchUp = frameDuration * 4;
+    if (accum > maxCatchUp) accum = maxCatchUp;
+    while (accum >= frameDuration) {
+      registered.forEach(fn => { try { fn(frameDuration); } catch (e) { console.error(e); } });
+      accum -= frameDuration;
+    }
+  }
+  function startLoop() {
+    if (rafId == null) {
+      lastTime = performance.now();
+      rafId = requestAnimationFrame(loop);
+    }
+  }
+
+  window.smoothTranslateTo = function (el, x, y) {
+    if (!el) return;
+    el.style.transform = 'translate3d(' + Math.round(x) + 'px,' + Math.round(y) + 'px,0)';
+    el.classList.add('smooth-move');
+  };
+})();

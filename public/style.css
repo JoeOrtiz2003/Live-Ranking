@@ -11,6 +11,15 @@
   --dead-background-color: #0e0d0d;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   display: flex;
   justify-content: flex-end;
@@ -20,6 +29,17 @@ body {
   padding: 0;
   background: transparent;
   font-family: var(--font);
+}
+
+.app-1080 {
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 #mainDiv {
