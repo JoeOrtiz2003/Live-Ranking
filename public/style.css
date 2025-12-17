@@ -2,12 +2,12 @@
   --mainWidth: min(90vw, 255px);
   --font: 'Oswald', sans-serif;
   --ranking-header-color: white;
-  --ranking-header-background-color: #31b4d7;
+  --ranking-header-background-color: #10b0dd;
   --ranking-element-color: white;
-  --ranking-uneven-background-color: #237e9a;
-  --ranking-even-background-color: #16475b;
+  --ranking-uneven-background-color: #05618b;
+  --ranking-even-background-color: #319db3;
   --alive-background-color: #ffffff;
-  --lower-background-color: #16475b;
+  --lower-background-color: #298ca0;
   --dead-background-color: #0e0d0d;
 }
 
@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-transform: uppercase;
-  transform: translateX(0%) translateY(170px);
+  transform: translateX(0%) translateY(125px);
   margin-right: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
   opacity 1;
